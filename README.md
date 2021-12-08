@@ -20,14 +20,14 @@
 
 ## User Stories
 
-### *TBA*
+[User Stories](https://github.com/orgs/League-Advisor/projects/2)
+
 
 ---
 
-## Domain Model
+## Domain Model And Database Schema
 
-### *TBA*
-
+![Domain](https://cdn.discordapp.com/attachments/905518241651228712/918253198144319548/Domain_Model.png)
 ---
 
 ## Project Directory Tree
