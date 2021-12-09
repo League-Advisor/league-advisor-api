@@ -22,12 +22,22 @@
 
 [User Stories](https://github.com/orgs/League-Advisor/projects/2)
 
+---
+
+## Domain Model
+
+![Domain Model](assets/Domain_Model.png)
+
+- Items marked with * are stretch goals or may require different approach.
 
 ---
 
-## Domain Model And Database Schema
+## Database Schema Diagram
 
-![Domain](https://cdn.discordapp.com/attachments/905518241651228712/918253198144319548/Domain_Model.png)
+![Database Schema](assets/Database_Schema.png)
+
+- Items marked with * are stretch goals or may require different approach.
+
 ---
 
 ## Project Directory Tree
@@ -51,6 +61,10 @@
 ## Change Log
 
 v0.1: _feat: started project and created project repo_ - 08 Dec 2021
+
+v0.1.1 _docs: added requirements, domain model and db schema_ - 08 Dec 2021
+
+v0.1.2 _docs: edited domain model and db schema_ - 09 Dec 2021
 
 ---
 
