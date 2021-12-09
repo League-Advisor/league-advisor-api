@@ -50,6 +50,12 @@
 
 [GitHub Projects - League Advisor Web App](https://github.com/orgs/League-Advisor/projects/2)
 
+- Python 
+- Poetry 
+- Django
+- restframework
+
+
 ---
 
 ## Getting Started
@@ -66,6 +72,7 @@ v0.1.1 _docs: added requirements, domain model and db schema_ - 08 Dec 2021
 
 v0.1.2 _docs: edited domain model and db schema_ - 09 Dec 2021
 
+v0.1.3 _feat: create django project and account app_ - 09 Dec 2021
 ---
 
 ## Test Coverage
