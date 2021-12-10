@@ -53,9 +53,11 @@
 - Python 
 - Poetry 
 - Django
-- restframework
-
-
+- Django-rest-framework
+- Django-cors-headers
+- pytz
+- PyJWT
+- DateTime
 ---
 
 ## Getting Started
@@ -75,6 +77,9 @@ v0.1.2 _docs: edited domain model and db schema_ - 09 Dec 2021
 v0.1.3 _feat: create django project and account app_ - 09 Dec 2021
 
 v0.1.4 _feat: create account model_ - 10 Dec 2021
+
+v0.1.5 _feat: create account register, login, logout and, user (views & serializers)_ - 10 Dec 2021
+
 ---
 
 ## Test Coverage
