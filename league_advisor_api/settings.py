@@ -40,6 +40,8 @@ INSTALLED_APPS = [
   
     'rest_framework',
     'accounts',
+    'solo_champion',
+    'ranked',
 ]
 
 MIDDLEWARE = [

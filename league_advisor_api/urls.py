@@ -19,4 +19,6 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
+    path('solo_champion/',include('solo_champion.urls')),
+    path('ranked/',include('ranked.urls'))
 ]
