@@ -1,3 +1,5 @@
+"""This module tests patch_notes module"""
+
 from django.urls import reverse
 from rest_framework import status
 from rest_framework.test import APITestCase
