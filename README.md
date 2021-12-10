@@ -50,11 +50,10 @@
 
 [GitHub Projects - League Advisor Web App](https://github.com/orgs/League-Advisor/projects/2)
 
-- Python 
-- Poetry 
+- Python
+- Poetry
 - Django
 - restframework
-
 
 ---
 
