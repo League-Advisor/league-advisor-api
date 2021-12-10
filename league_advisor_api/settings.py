@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'rest_framework',
     #Local
     'accounts',
-    'champions'
+    'champions',
+    'patch_notes'
 ]
 
 MIDDLEWARE = [
