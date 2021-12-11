@@ -59,7 +59,8 @@
 - pandas
 - cdifflib
 - collections-extended
-
+- django-nose
+- coverage
 ---
 
 ## Getting Started
@@ -87,6 +88,7 @@ v0.4.0 :_feat: created solo champion app and ranked app_ - 11 Dec 2021
 
 v0.4.1 :_feat: refacring ranked app_ - 11 Dec 2021
 
+v0.4.2 :_test: adding tests for solo champion_ - 12 Dec 2021
 ---
 
 ## Test Coverage

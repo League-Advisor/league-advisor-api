@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'items',
     'solo_champion',
     'ranked',
+    'django_nose'
+    
 ]
 
 MIDDLEWARE = [
@@ -140,3 +142,12 @@ REST_FRAMEWORK = {
 }
 
 AUTH_USER_MODEL = 'accounts.Account'
+
+
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+
+
+NOSE_ARGS = [
+    '--with-coverage',
+    '--cover-package=[solo_champion]',
+]
