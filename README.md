@@ -85,6 +85,8 @@ v0.2.4 _tests: added patch_notes app tests_ - 10 Dec 2021
 
 v0.2.5 _feat: modified champions command to include stretch goals_ - 11 Dec 2021
 
+v0.2.6 _feat: automated detecting newer patch release and updating data_ - 11 Dec 2021
+
 ---
 
 ## Test Coverage

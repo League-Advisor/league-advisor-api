@@ -8,23 +8,30 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
 
-        # NOTE: UNCOMMENT IF YOU ARE USING STATIC FILES
-        # with open('static/champions_data.json') as f:
-        #     json_file = json.load(f)
+        # NOTE: Remove all old model objects
+        Champion.objects.all().delete()
+
+        print("REMOVING OLD DATA")
+
+        time.sleep(10)
+
+        # NOTE: GET THE LATEST VERSION
+        with open('static/versions.json') as local_versions:
+            local_version = json.load(local_versions)
 
         # NOTE: GET ALL CHAMPIONS JSON FILE FROM RIOT API
-        champions_json_url = f"http://ddragon.leagueoflegends.com/cdn/11.24.1/data/en_US/champion.json"
+        champions_json_url = f"http://ddragon.leagueoflegends.com/cdn/{local_version[0]}/data/en_US/champion.json"
         json_file = requests.get(champions_json_url).json()
 
         counter = 0
         # NOTE: LOOP OVER EACH CHAMPION
         for champion in json_file['data']:
             # NOTE: GET EACH CHAMPION'S DETAILED JSON FILE FROM RIOT API
-            champion_json_url = f"http://ddragon.leagueoflegends.com/cdn/11.24.1/data/en_US/champion/{json_file['data'][champion]['id']}.json"
+            champion_json_url = f"http://ddragon.leagueoflegends.com/cdn/{local_version[0]}/data/en_US/champion/{json_file['data'][champion]['id']}.json"
             champion_json = requests.get(champion_json_url).json()
 
             # NOTE: TRY NOT TO GET BLACKLISTED
-            time.sleep(5)   
+            time.sleep(2)   
 
             # NOTE: GATHER NECESSARY SKIN INFO
             champion_skins = []
@@ -34,11 +41,13 @@ class Command(BaseCommand):
             # NOTE: GATHER NECESSARY SKILLS INFO
             champion_skills = []
             for skill in champion_json['data'][champion]['spells']:
-                champion_skills.append({skill["name"]:f'http://ddragon.leagueoflegends.com/cdn/11.24.1/img/spell/{skill["id"]}.png'})
+                champion_skills.append({skill["name"]:f'http://ddragon.leagueoflegends.com/cdn/{local_version[0]}/img/spell/{skill["id"]}.png'})
 
             # NOTE: CREATE AN OBJECT
             # NOTE: STORE LISTS AS STR
 
+            print(f"POPULATING DATABSE WITH {champion_json['data'][champion]['name']} DATA" )
+            
             Champion.objects.get_or_create(
             pk=counter,
             champion_id=champion_json['data'][champion]['id'],
