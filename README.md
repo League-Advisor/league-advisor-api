@@ -54,7 +54,11 @@
 - Poetry 
 - Django
 - restframework
-
+- bs4
+- requests
+- pandas
+- cdifflib
+- collections-extended
 
 ---
 
@@ -76,7 +80,12 @@ v0.1.3 _feat: create django project and account app_ - 09 Dec 2021
 
 v0.1.4 _feat: create account model_ - 10 Dec 2021
 
+
 v0.2 _feat: create items app and some tests_ - 10 Dec 2021
+
+v0.4.0 :_feat: created solo champion app and ranked app_ - 11 Dec 2021
+
+
 ---
 
 ## Test Coverage
