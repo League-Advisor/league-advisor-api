@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-  
+    'django_nose',
     'rest_framework',
     'accounts',
     'items',
@@ -140,3 +140,8 @@ REST_FRAMEWORK = {
 }
 
 AUTH_USER_MODEL = 'accounts.Account'
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+NOSE_ARGS = [
+    '--with-coverage',
+    '--cover-package=[solo_champion,ranked]',
+]
