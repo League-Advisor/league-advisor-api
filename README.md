@@ -80,6 +80,8 @@ v0.1.4 _feat: create account model_ - 10 Dec 2021
 
 v0.1.5 _feat: create account register, login, logout and, user (views & serializers)_ - 10 Dec 2021
 
+v0.1.6 _feat: fill out the account-model fields with riot-games-datasets_ - 11 Dec 2021
+
 ---
 
 ## Test Coverage
