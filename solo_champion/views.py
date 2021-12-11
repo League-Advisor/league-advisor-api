@@ -5,8 +5,6 @@ from rest_framework.response import Response
 import os
 import requests
 from bs4 import BeautifulSoup
-# from league_advisor.string_assets.menu_strings import strings
-# from league_advisor.string_assets.colors import color
 from django.http import HttpRequest
 
 
