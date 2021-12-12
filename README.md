@@ -105,6 +105,8 @@ v0.1.7 _refactor: accounts-app api data refactor and adding env variables_ - 12 
 
 v0.1.8 _fix: avoid errors on invalid summonername_ - 12 Dec 2021
 
+v0.1.9 test:_ading account test file and test (views, model)_ - 12 Dec 2021
+
 v0.2.6 _feat: automated detecting newer patch release and updating data_ - 11 Dec 2021
 
 v0.2 _feat: create items app and some tests_ - 10 Dec 2021
@@ -117,11 +119,13 @@ v0.4.2 :_test: adding tests for solo champion_ - 12 Dec 2021
 
 v0.4.3 :_test: make a test for ranked app_ - 12 Dec 2021
 
+
 v0.5.0 :_refactor: automate populating items_ - 12 Dec 2021
 
 v0.5.1 :_refactor: initial db population and automating version reading_ - 12 Dec 2021
 
-v0.1.9 test:_ading account test file and test (views, model)_ - 12 Dec 2021
+v0.5.3 :_test: _update tests_ - 12 Dec 2021
+
 
 ---
 
