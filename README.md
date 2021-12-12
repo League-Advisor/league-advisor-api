@@ -61,6 +61,7 @@
 - collections-extended
 - django-nose
 - coverage
+
 ---
 
 ## Getting Started
@@ -81,7 +82,6 @@ v0.1.3 _feat: create django project and account app_ - 09 Dec 2021
 
 v0.1.4 _feat: create account model_ - 10 Dec 2021
 
-
 v0.2 _feat: create items app and some tests_ - 10 Dec 2021
 
 v0.4.0 :_feat: created solo champion app and ranked app_ - 11 Dec 2021
@@ -89,6 +89,9 @@ v0.4.0 :_feat: created solo champion app and ranked app_ - 11 Dec 2021
 v0.4.1 :_feat: refacring ranked app_ - 11 Dec 2021
 
 v0.4.2 :_test: adding tests for solo champion_ - 12 Dec 2021
+
+v0.4.3 :_test: make a test for ranked app_ - 12 Dec 2021
+
 ---
 
 ## Test Coverage
