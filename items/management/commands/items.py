@@ -12,7 +12,7 @@ class Command(BaseCommand):
         # NOTE: Remove all old model objects
         Item.objects.all().delete()
 
-        print("REMOVING OLD DATA")
+        print("REMOVING OLD ITEMS DATA")
 
         time.sleep(10)
 
