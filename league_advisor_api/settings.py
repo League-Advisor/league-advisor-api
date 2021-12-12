@@ -38,11 +38,17 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     #Thirdparty
+    'django_nose',
     'rest_framework',
     #Local
     'accounts',
     'champions',
     'patch_notes'
+    'items',
+    'solo_champion',
+    'ranked',
+    'django_nose'
+    
 ]
 
 MIDDLEWARE = [
@@ -83,6 +89,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+        'OPTIONS': {
+            'timeout': 20,  
+    }
     }
 }
 
@@ -137,3 +146,12 @@ REST_FRAMEWORK = {
 }
 
 AUTH_USER_MODEL = 'accounts.Account'
+
+
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+
+
+NOSE_ARGS = [
+    '--with-coverage',
+    '--cover-package=[solo_champion,ranked]',
+]

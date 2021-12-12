@@ -54,6 +54,13 @@
 - Poetry
 - Django
 - restframework
+- bs4
+- requests
+- pandas
+- cdifflib
+- collections-extended
+- django-nose
+- coverage
 
 ---
 
@@ -86,6 +93,16 @@ v0.2.4 _tests: added patch_notes app tests_ - 10 Dec 2021
 v0.2.5 _feat: modified champions command to include stretch goals_ - 11 Dec 2021
 
 v0.2.6 _feat: automated detecting newer patch release and updating data_ - 11 Dec 2021
+
+v0.2 _feat: create items app and some tests_ - 10 Dec 2021
+
+v0.4.0 :_feat: created solo champion app and ranked app_ - 11 Dec 2021
+
+v0.4.1 :_feat: refacring ranked app_ - 11 Dec 2021
+
+v0.4.2 :_test: adding tests for solo champion_ - 12 Dec 2021
+
+v0.4.3 :_test: make a test for ranked app_ - 12 Dec 2021
 
 ---
 
