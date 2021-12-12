@@ -95,6 +95,8 @@ v0.1.6 _feat: fill out the account-model fields with riot-games-datasets_ - 11 D
 
 v0.1.7 _refactor: accounts-app api data refactor and adding env variables_ - 12 Dec 2021
 
+v0.1.8 _fix: avoid errors on invalid summonername_ - 12 Dec 2021
+
 ---
 
 ## Test Coverage

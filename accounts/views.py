@@ -19,7 +19,7 @@ class LoginView(APIView):
         user = UserModel.objects.filter(email=email)
         user = user.first()
         if not user:
-            raise AuthenticationFailed('user not funed!')
+            raise AuthenticationFailed('user not found!')
 
         if not user.check_password(password):
             raise AuthenticationFailed('incorrect password!')

@@ -22,5 +22,5 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('champions/', include('champions.urls')),
     path('patch-notes/', include('patch_notes.urls')),
-
+    path("api-auth/", include("rest_framework.urls")),
 ]
