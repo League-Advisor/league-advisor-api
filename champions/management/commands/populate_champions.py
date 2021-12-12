@@ -11,7 +11,7 @@ class Command(BaseCommand):
         # NOTE: Remove all old model objects
         Champion.objects.all().delete()
 
-        print("REMOVING OLD DATA")
+        print("REMOVING OLD CHAMPIONS DATA")
 
         time.sleep(10)
 
