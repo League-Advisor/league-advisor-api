@@ -24,8 +24,6 @@ cdifflib = "^1.2.5"
 collections-extended = "^2.0.0"
 django-nose = "^1.4.7"
 coverage = "^6.2"
-
-[tool.poetry.dev-dependencies]
 Sphinx = "^4.3.1"
 sphinx-rtd-theme = "^1.0.0"
 black = {version = "^21.12b0", allow-prereleases = true}

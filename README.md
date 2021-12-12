@@ -117,6 +117,7 @@ v0.4.2 :_test: adding tests for solo champion_ - 12 Dec 2021
 
 v0.4.3 :_test: make a test for ranked app_ - 12 Dec 2021
 
+v0.5 :_refactor: _automate populating items_ - 12 Dec 2021
 ---
 
 ## Test Coverage
