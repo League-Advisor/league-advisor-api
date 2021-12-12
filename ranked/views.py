@@ -3,6 +3,7 @@ import json
 import difflib as diff
 from collections import Counter
 from django.http import JsonResponse
+import requests
 
 
 def data_analyzer(request):
