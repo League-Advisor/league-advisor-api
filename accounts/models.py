@@ -1,13 +1,15 @@
 from django.db import models
 import environ
 from django.contrib.auth.models import AbstractUser
+from rest_framework.response import Response
+from rest_framework import status
+
 import requests
 import json
-
+import  environ
 # NOTE: READ ENV VARIABLES
 env = environ.Env()
 environ.Env.read_env()
-
 # NOTE: SET DEFAULT JSON FIELDS VALUE
 def no_data_default():
     return {"champion_mastery":"not enough data"}
@@ -74,7 +76,7 @@ class UserModel(AbstractUser):
                 riot_routing = "ASIA"
             
             # NOTE: GET SUMMONER MOST RECENT MATCH HISTORY
-            match_history = summoner_rank = requests.get(
+            match_history = requests.get(
                 f"https://{riot_routing}.api.riotgames.com/lol/match/v5/matches/by-puuid/{puuid}/ids?count=5", headers = {"X-Riot-Token":f"{env('API_KEY')}"}
             ).json()
             # //////////////////////////////////////////
@@ -91,6 +93,7 @@ class UserModel(AbstractUser):
             self.summoner_match_history = match_history_data
             # //////////////////////////////////////////
         super(UserModel, self).save(*args, **kwargs)
+        return Response(status= status.HTTP_200_OK)
 
     def __str__(self):
         return self.email

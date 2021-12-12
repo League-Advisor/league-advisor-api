@@ -1,19 +1,25 @@
 from rest_framework.views import APIView
 from .serializers import UserSerializer, UserViewSerializer
 from rest_framework.response import Response
+from rest_framework import status
 from .models import UserModel
 from rest_framework.exceptions import AuthenticationFailed
 import jwt, datetime
+
 class RegisterView(APIView):
     def post(self, request):
         serializer = UserSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
-            return Response(serializer.data)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(status= status.HTTP_400_BAD_REQUEST) 
 
 
 class LoginView(APIView):
     def post(self, request):
+
+        if not request.data:
+            return Response(status= status.HTTP_400_BAD_REQUEST)
         email = request.data['email']
         password = request.data['password']
         user = UserModel.objects.filter(email=email)
@@ -42,6 +48,10 @@ class LoginView(APIView):
 class UserView(APIView):
 
     def get(self, request):
+
+        if not request.data:
+            return Response(status= status.HTTP_400_BAD_REQUEST)
+
         token = request.COOKIES.get('jwt')
 
         if not token:
@@ -62,7 +72,4 @@ class LogoutView(APIView):
     def post(self, request):
         response = Response()
         response.delete_cookie('jwt')
-        response.data = {
-            'message': 'success'
-        }
-        return response
+        return Response(status= status.HTTP_200_OK)
