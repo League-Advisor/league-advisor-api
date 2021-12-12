@@ -1,19 +1,24 @@
 [tool.poetry]
-name = "league-advisor-api"
+name = "api_test"
 version = "0.1.0"
 description = ""
 authors = ["bashar adel taamneh <bashartaamneh55@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
-djangorestframework = "^3.12.4"
 Django = "^4.0"
-cors = "^1.0.1"
-black = "^21.12b0"
-flake8 = "^4.0.1"
+djangorestframework = "^3.12.4"
 pytz = "^2021.3"
 bs4 = "^0.0.1"
 requests = "^2.26.0"
+DateTime = "^4.3"
+PyJWT = "^2.3.0"
+django-cors-headers = "^3.10.1"
+django-environ = "^0.8.1"
+djangorestframework-simplejwt = "^5.0.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
 pandas = "^1.3.4"
 cdifflib = "^1.2.5"
 collections-extended = "^2.0.0"
