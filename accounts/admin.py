@@ -1,18 +1,12 @@
 from django.contrib import admin
-from django.contrib.auth import get_user_model
 from django.contrib.auth.admin import UserAdmin
+from .models import UserModel
 
-from .forms import AccountCreationForm, AccountChangeForm
-from .models import Account
+class LeagueAdvisorAdmin(UserAdmin):
+        fieldsets = UserAdmin.fieldsets
+        UserAdmin.list_display = list(UserAdmin.list_display)
+        REQUIRED_FIELDS = ["email"]
 
-class CustomUserAdmin(UserAdmin):
-    add_form = AccountCreationForm
-    form = AccountChangeForm
-    model = Account
-    list_display = ['email', 'username' ]
+admin.site.register(UserModel)
 
-    # fieldsets = UserAdmin.fieldsets + (
-    #     ('personal_info', {'fields': ('age','phone_number')}),
-    # )
 
-admin.site.register(Account, CustomUserAdmin)

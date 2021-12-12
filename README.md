@@ -54,7 +54,11 @@
 - Poetry
 - Django
 - restframework
-
+- Django-rest-framework
+- Django-cors-headers
+- pytz
+- PyJWT
+- DateTime
 ---
 
 ## Getting Started
@@ -84,6 +88,12 @@ v0.2.3 _feat: created patch_notes app_ - 10 Dec 2021
 v0.2.4 _tests: added patch_notes app tests_ - 10 Dec 2021
 
 v0.2.5 _feat: modified champions command to include stretch goals_ - 11 Dec 2021
+
+v0.1.5 _feat: create account register, login, logout and, user (views & serializers)_ - 10 Dec 2021
+
+v0.1.6 _feat: fill out the account-model fields with riot-games-datasets_ - 11 Dec 2021
+
+v0.1.7 _refactor: accounts-app api data refactor and adding env variables_ - 12 Dec 2021
 
 ---
 
