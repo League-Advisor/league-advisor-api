@@ -43,11 +43,17 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #Thirdparty
     'corsheaders',
+    'django_nose',
     'rest_framework',
     #Local
     'accounts',
     'champions',
     'patch_notes'
+    'items',
+    'solo_champion',
+    'ranked',
+    'django_nose'
+    
 ]
 
 MIDDLEWARE = [
@@ -89,6 +95,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+        'OPTIONS': {
+            'timeout': 20,  
+    }
     }
 }
 
@@ -136,5 +145,17 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'accounts.UserModel'
 
+
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
+
+AUTH_USER_MODEL = 'accounts.Account'
+
+
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+
+
+NOSE_ARGS = [
+    '--with-coverage',
+    '--cover-package=[solo_champion,ranked]',
+]

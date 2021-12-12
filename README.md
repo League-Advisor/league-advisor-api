@@ -59,6 +59,14 @@
 - pytz
 - PyJWT
 - DateTime
+- bs4
+- requests
+- pandas
+- cdifflib
+- collections-extended
+- django-nose
+- coverage
+
 ---
 
 ## Getting Started
@@ -96,6 +104,18 @@ v0.1.6 _feat: fill out the account-model fields with riot-games-datasets_ - 11 D
 v0.1.7 _refactor: accounts-app api data refactor and adding env variables_ - 12 Dec 2021
 
 v0.1.8 _fix: avoid errors on invalid summonername_ - 12 Dec 2021
+
+v0.2.6 _feat: automated detecting newer patch release and updating data_ - 11 Dec 2021
+
+v0.2 _feat: create items app and some tests_ - 10 Dec 2021
+
+v0.4.0 :_feat: created solo champion app and ranked app_ - 11 Dec 2021
+
+v0.4.1 :_feat: refacring ranked app_ - 11 Dec 2021
+
+v0.4.2 :_test: adding tests for solo champion_ - 12 Dec 2021
+
+v0.4.3 :_test: make a test for ranked app_ - 12 Dec 2021
 
 ---
 
