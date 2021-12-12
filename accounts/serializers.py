@@ -6,7 +6,7 @@ from .models import UserModel
 class UserViewSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserModel
-        fields = ['profile_icon', 'username', 'summoner_name', 'email', 'summoner_server', 'summoner_level',
+        fields = ['id', 'profile_icon', 'username', 'summoner_name', 'email', 'summoner_server', 'summoner_level',
                   'summoner_rank', 'summoner_champion_mastery', 'summoner_match_history']
         
 
