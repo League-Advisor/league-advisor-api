@@ -31,8 +31,8 @@ class UserModelModelTests(TestCase):
     def test_account_save(self):
         user = UserModel.objects.filter(id=1)
         user = user.first()
-        hit = UserModel.save(user)
-        self.assertEqual(hit, status.HTTP_200_OK)
+        user = UserModel.save(user)
+        self.assertEqual(user, 200)
 
 
 # ///////////test APIViews

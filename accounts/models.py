@@ -24,7 +24,7 @@ class UserModel(AbstractUser):
     email = models.EmailField(max_length=255, unique=True)
     password = models.CharField(max_length=255)
     summoner_name = models.CharField(max_length=255)
-    summoner_server = models.CharField(max_length=255)
+    summoner_server = models.CharField(default="euw1", max_length=255)
     summoner_level = models.IntegerField(default=0)
     summoner_rank = models.JSONField(default= no_data_default)
     profile_icon = models.URLField(default=f"https://ddragon.leagueoflegends.com/cdn/{local_version[0]}/img/profileicon/0.png")

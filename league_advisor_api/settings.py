@@ -153,5 +153,5 @@ TEST_RUNNER = "django_nose.NoseTestSuiteRunner"
 
 NOSE_ARGS = [
     "--with-coverage",
-    "--cover-package=solo_champion,ranked,accounts"
+    "--cover-package=accounts,solo_champion,ranked"
 ]
