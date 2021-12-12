@@ -2,6 +2,7 @@ from django.db import models
 import environ
 from django.contrib.auth.models import AbstractUser
 import requests
+import json
 
 # NOTE: READ ENV VARIABLES
 env = environ.Env()
@@ -11,6 +12,9 @@ environ.Env.read_env()
 def no_data_default():
     return {"champion_mastery":"not enough data"}
 
+# NOTE: READ THE LATEST PATCH NOTES
+with open("static/versions.json") as local_versions:
+    local_version = json.load(local_versions)
 
 class UserModel(AbstractUser):
 
@@ -21,7 +25,7 @@ class UserModel(AbstractUser):
     summoner_server = models.CharField(max_length=255)
     summoner_level = models.IntegerField(default=0)
     summoner_rank = models.JSONField(default= no_data_default)
-    profile_icon = models.URLField(default="https://ddragon.leagueoflegends.com/cdn/11.24.1/img/profileicon/0.png")
+    profile_icon = models.URLField(default=f"https://ddragon.leagueoflegends.com/cdn/{local_version[0]}/img/profileicon/0.png")
     summoner_champion_mastery = models.JSONField(default= no_data_default)
     summoner_match_history = models.JSONField(default= no_data_default)
     REQUIRED_FIELDS = ["summoner_name", "summoner_server", "email"]
@@ -43,7 +47,7 @@ class UserModel(AbstractUser):
             puuid = response_data["puuid"]
             # //////////////////////////////////////////
             # NOTE: GET SUMMONER ICON
-            self.profile_icon = f"https://ddragon.leagueoflegends.com/cdn/11.24.1/img/profileicon/{profileIconId}.png"
+            self.profile_icon = f"https://ddragon.leagueoflegends.com/cdn/{local_version[0]}/img/profileicon/{profileIconId}.png"
             # //////////////////////////////////////////
             # NOTE: GET SUMMONER CHAMPION MASTERY DATA
             champion_mastery = requests.get(
