@@ -19,8 +19,9 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
+    path('champions/', include('champions.urls')),
+    path('patch-notes/', include('patch_notes.urls')),
     path('items/', include('items.urls')),
-
     path('solo_champion/',include('solo_champion.urls')),
     path('ranked/',include('ranked.urls'))
 ]

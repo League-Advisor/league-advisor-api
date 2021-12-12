@@ -37,9 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #Thirdparty
     'django_nose',
     'rest_framework',
+    #Local
     'accounts',
+    'champions',
+    'patch_notes'
     'items',
     'solo_champion',
     'ranked',
@@ -147,10 +151,6 @@ AUTH_USER_MODEL = 'accounts.Account'
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 
 
-NOSE_ARGS = [
-    '--with-coverage',
-    '--cover-package=[solo_champion]',
-TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 NOSE_ARGS = [
     '--with-coverage',
     '--cover-package=[solo_champion,ranked]',

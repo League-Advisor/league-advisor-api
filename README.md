@@ -50,8 +50,8 @@
 
 [GitHub Projects - League Advisor Web App](https://github.com/orgs/League-Advisor/projects/2)
 
-- Python 
-- Poetry 
+- Python
+- Poetry
 - Django
 - restframework
 - bs4
@@ -81,6 +81,18 @@ v0.1.2 _docs: edited domain model and db schema_ - 09 Dec 2021
 v0.1.3 _feat: create django project and account app_ - 09 Dec 2021
 
 v0.1.4 _feat: create account model_ - 10 Dec 2021
+
+v0.2.0 _feat: created champions app_ - 10 Dec 2021
+
+v0.2.1 _tests: added champions app tests_ - 10 Dec 2021
+
+v0.2.3 _feat: created patch_notes app_ - 10 Dec 2021
+
+v0.2.4 _tests: added patch_notes app tests_ - 10 Dec 2021
+
+v0.2.5 _feat: modified champions command to include stretch goals_ - 11 Dec 2021
+
+v0.2.6 _feat: automated detecting newer patch release and updating data_ - 11 Dec 2021
 
 v0.2 _feat: create items app and some tests_ - 10 Dec 2021
 
