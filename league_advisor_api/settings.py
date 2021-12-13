@@ -147,6 +147,16 @@ CORS_ALLOW_CREDENTIALS = True
 
 AUTH_USER_MODEL = "accounts.UserModel"
 
+REST_FRAMEWORK = {
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.AllowAny",
+    ],
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+        "rest_framework.authentication.SessionAuthentication",
+        "rest_framework.authentication.BasicAuthentication",
+    ],
+}
 
 TEST_RUNNER = "django_nose.NoseTestSuiteRunner"
 
