@@ -64,6 +64,8 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django_session_timeout.middleware.SessionTimeoutMiddleware',
 ]
 
 ROOT_URLCONF = "league_advisor_api.urls"
@@ -168,3 +170,6 @@ NOSE_ARGS = [
 ]
 
 SIMPLE_JWT = {"ACCESS_TOKEN_LIFETIME": timedelta(seconds=60 * 60 * 2)}
+
+SESSION_EXPIRE_SECONDS = 60 * 60 * 2
+# SESSION_TIMEOUT_REDIRECT = 'your_redirect_url_here/'

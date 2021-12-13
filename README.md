@@ -66,6 +66,7 @@
 - collections-extended
 - django-nose
 - coverage
+- django-session-timeout
 
 ---
 
@@ -133,6 +134,7 @@ v0.5.6 :_fix: stroing hashed normal user password_ - 13 Dec 2021
 
 v0.5.7 :_fix: fixed static assets_ - 13 Dec 2021
 
+v0.5.8 :_fix: Session Extension Test_ - 13 Dec 2021
 ---
 
 ## Test Coverage
