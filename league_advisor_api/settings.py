@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import environ
+from datetime import timedelta
 
 env = environ.Env()
 environ.Env.read_env()
@@ -165,3 +166,5 @@ NOSE_ARGS = [
     "--with-coverage",
     "--cover-package=solo_champion,ranked,accounts"
 ]
+
+SIMPLE_JWT = {"ACCESS_TOKEN_LIFETIME": timedelta(seconds=60 * 60 * 2)}

@@ -131,6 +131,8 @@ v0.5.5 :_fix: adjusted temporary alternative login/registration method returned 
 
 v0.5.6 :_fix: stroing hashed normal user password_ - 13 Dec 2021
 
+v0.5.7 :_fix: fixed static assets_ - 13 Dec 2021
+
 ---
 
 ## Test Coverage
