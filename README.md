@@ -127,6 +127,8 @@ v0.5.3 :_test: _update tests_ - 12 Dec 2021
 
 v0.5.4 :_fix: added temporary alternative login/registration method_ - 13 Dec 2021
 
+v0.5.5 :_fix: adjusted temporary alternative login/registration method returned data_ - 13 Dec 2021
+
 ---
 
 ## Test Coverage

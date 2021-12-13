@@ -13,7 +13,8 @@ class UserViewSerializer(serializers.ModelSerializer):
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserModel
-        fields = ['username', 'summoner_name', 'summoner_server', 'email', 'password']
+        fields = ['id', 'profile_icon', 'username', 'summoner_name', 'email', 'summoner_server', 'summoner_level',
+                  'summoner_rank', 'summoner_champion_mastery', 'summoner_match_history']
         extra_kwargs = {
             'password': {'write_only': True}
         }
