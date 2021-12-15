@@ -5,3 +5,4 @@ release:
   image: web
 run:
   web: gunicorn league_advisor_api.wsgi --workers 4 
+  
