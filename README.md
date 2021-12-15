@@ -140,6 +140,9 @@ v0.5.9 :_fix: summoner profile update non auth_ - 15 Dec 2021
 v0.6.0 :_fix: refined code_ - 15 Dec 2021
 
 v0.6.1 :_test: refactor accounts tests_ - 15 Dec 2021
+
+v0.6.2 :_tests: testing champions app_ - 15 Dec 2021
+
 ---
 
 ## Test Coverage
