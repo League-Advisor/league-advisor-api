@@ -1,12 +1,14 @@
 """This module tests Accounts app"""
 
+# from os import environ
 from django.contrib.auth import get_user_model
 from django.test import TestCase
 from django.urls import reverse
 from rest_framework import status
 from rest_framework.test import APITestCase
 from .models import UserModel
-
+# env = environ.Env()
+# environ.Env.read_env()
 
 class UserModelModelTests(TestCase):
     @classmethod
@@ -31,9 +33,8 @@ class UserModelModelTests(TestCase):
     def test_account_save(self):
         user = UserModel.objects.filter(id=1)
         user = user.first()
-        user = UserModel.save(user)
-        self.assertEqual(user, 200)
-
+        response = UserModel.save(user)
+        self.assertEqual(response, None)
 
 # ///////////test APIViews
 class TistView(APITestCase):
@@ -45,16 +46,7 @@ class TistView(APITestCase):
         "summoner_server": "euw1",
         "email": "bashar@gmail.com",
     }
-    user_info = {
-        "username": "bashar",
-        "summoner_name": "bashar",
-        "summoner_server": "euw1",
-        "email": "bashar@gmail.com",
-    }
 
-    login_data = {"password": "pass", "email": "shar@gmail.com"}
-
-    login_data_T = {"password": "pass", "email": "bashar@gmail.com"}
     # ///////////test registerview
     def test_user_cannot_register_without_data(self):
         register_url = reverse("register")
@@ -65,22 +57,10 @@ class TistView(APITestCase):
         register_url = reverse("register")
         response = self.client.post(register_url, self.user_data)
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.data, self.user_info)
+        print(response.data["email"])
+        self.assertEqual(response.data["email"], "bashar@gmail.com")
 
     
-    # ///////////test loginview
-    def test_user_cannot_login_without_data(self):
-        login_url = reverse("login")
-        response = self.client.post(login_url)
-        self.assertEqual(response.status_code, 400)
+  
 
-    def test_user_not_found(self):
-        login_url = reverse("login")
-        response = self.client.post(login_url, self.login_data)
-        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
-    # ///////////test logoutview
-    def test_user__logout(self):
-        logout_url = reverse("logout")
-        response = self.client.post(logout_url)
-        self.assertEqual(response.status_code, 200)
