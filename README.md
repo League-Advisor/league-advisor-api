@@ -153,6 +153,7 @@ v0.6.4 :_test: edit ranked test_ - 15 Dec 2021
 
 v0.6.6 :_create: create docker container_ -15 Dec 2021
 
+v0.6.7 :_deploy: deploy league-advisor-api-v1_ -15 Dec 2021
 ---
 
 ## Test Coverage
