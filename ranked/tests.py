@@ -4,8 +4,14 @@ import requests
 from .views import data_analyzer
 import environ
 
+
 env = environ.Env()
 environ.Env.read_env()
+
+from rest_framework.test import APIRequestFactory
+
+# Using the standard RequestFactory API to create a form POST request
+
 
 # Create your tests here.
 class RankedTest(APITestCase):
@@ -48,3 +54,31 @@ class RankedTest(APITestCase):
                 ],
             },
         )
+
+    def test_data_analyzer(self):
+        factory = APIRequestFactory()
+        url = "http://127.0.0.1:8000/ranked?composition=Ezreal,Nami,Syndra,Nidalee,Yone,Blitzcranck,Lillia,Jax,Sejuani,Morgana,Ezreal"
+        request = factory.get(url)
+        actual = data_analyzer(request)
+        expected = {
+            "common items": [
+                "Serylda's Grudge",
+                "Muramana",
+                "Executioner's Calling",
+                "Ionian Boots of Lucidity",
+                "Divine Sunderer",
+                "Tiamat",
+                "Farsight Alteration",
+                "Doran's Blade",
+                "Muramana",
+                "Divine Sunderer",
+            ],
+            "recommended_build": [
+                "Ionian Boots of Lucidity",
+                "Farsight Alteration",
+                "Divine Sunderer",
+                "Muramana",
+                "Doran's Blade",
+            ],
+        }
+        assert actual == expected

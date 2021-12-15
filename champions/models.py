@@ -1,7 +1,5 @@
 from django.db import models
 from django.db.models.fields import IntegerField, TextField,  CharField
-from django.db.models import ForeignKey
-from league_advisor_api.settings import AUTH_USER_MODEL
 
 class Champion(models.Model):
     id = IntegerField(default=0, primary_key= True, unique= True)
@@ -19,7 +17,6 @@ class Champion(models.Model):
     skins = TextField(default= '')
     tags = TextField(default='')
     stats = TextField(default='')
-    creator = ForeignKey(AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True) 
 
     def __str__(self):
       return self.champion_id
