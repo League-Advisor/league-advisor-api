@@ -21,11 +21,7 @@ class RegisterView(APIView):
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_200_OK)
-        else:
-            available = {
-                "message":"user already exists"
-            }
-            return Response(available, status=status.HTTP_200_OK)
+
 
 
 def UpdateProfile(request):
