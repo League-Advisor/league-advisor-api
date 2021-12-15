@@ -1,6 +1,7 @@
 from rest_framework.test import APITestCase
 import requests
-
+from rest_framework.test import APIRequestFactory
+from .views import get_items
 
 class SoloChampionTest(APITestCase):
     def test_solo_champion(self):
@@ -39,3 +40,16 @@ class SoloChampionTest(APITestCase):
             ]
         }
         assert actual == expected
+    
+    
+    def test_solo_champion2(self):
+        factory = APIRequestFactory()
+        url ='http://127.0.0.1:8000/solo_champion/?champion_name=zoe'
+        request = factory.get(url)
+        expected = 200
+        actual = get_items(request).status_code  
+        assert expected == actual
+    
+     
+    
+        
