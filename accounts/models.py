@@ -34,6 +34,8 @@ class UserModel(AbstractUser):
 
     # NOTE: OVERRIDE DEFAULT VALUES WITH REAL SUMMONER DATA
     def save(self, *args, **kwargs):
+        env = environ.Env()
+        environ.Env.read_env()
         # NOTE: GET SUMMONER DATA USING SUMMONERNAME
         response = requests.get(
             f"https://{self.summoner_server}.api.riotgames.com/lol/summoner/v4/summoners/by-name/{self.summoner_name}", headers = {"X-Riot-Token":f"{env('API_KEY')}"}
@@ -93,7 +95,6 @@ class UserModel(AbstractUser):
             self.summoner_match_history = match_history_data
             # //////////////////////////////////////////
         super(UserModel, self).save(*args, **kwargs)
-        return Response(status= status.HTTP_200_OK)
 
     def __str__(self):
         return self.email

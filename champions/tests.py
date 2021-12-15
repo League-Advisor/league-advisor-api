@@ -6,8 +6,19 @@ from django.urls import reverse
 import environ
 from rest_framework import status
 from rest_framework.test import APITestCase
-
+from .apps import ChampionsConfig
+from django.apps import AppConfig
 from .models import Champion
+import requests
+import json
+import environ
+from champions.management.commands.populate_champions import Command
+from items.management.commands.items import Command as ItemsCommand
+from unittest import skip
+from .models import Champion
+
+env = environ.Env()
+environ.Env.read_env()
 
 env = environ.Env(DEBUG=(bool, False))
 environ.Env.read_env()
@@ -109,10 +120,32 @@ class APITest(APITestCase):
                 "defense": test_champion.defense,
                 "magic": test_champion.magic,
                 "difficulty": test_champion.difficulty,
+                "skills": test_champion.skills,
                 "image": test_champion.image,
+                "skins": test_champion.skins,
                 "tags": test_champion.tags,
                 "stats": test_champion.stats,
-                "skills": test_champion.skills,
-                "skins": test_champion.skins,
             },
         )
+
+
+# @skip('ONLY RUNE THIS TEST IF YOU HAVE AN EXCELLENT CONNECTION BECAUSE IT WILL EMPTY THE DB AND REPOPULATE IT')
+# class ChampionAppTests(TestCase):
+#     # Arrange
+#     current_versions = requests.get("https://ddragon.leagueoflegends.com/api/versions.json").json()
+#     with open("static/versions.json") as local_versions:
+#                 local_version = json.load(local_versions)
+#     expected = current_versions[0]
+#     command = Command()
+#     items = ItemsCommand()
+
+#     # Act
+#     ChampionsConfig.ready(AppConfig)
+#     command.handle()
+#     items.handle()
+
+#     actual = local_version[0]
+
+#     # Assert
+#     assert actual == expected
+

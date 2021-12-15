@@ -170,3 +170,5 @@ NOSE_ARGS = [
 ]
 
 SIMPLE_JWT = {"ACCESS_TOKEN_LIFETIME": timedelta(seconds=60 * 60 * 2)}
+
+SESSION_EXPIRE_SECONDS = 60 * 60 * 2
