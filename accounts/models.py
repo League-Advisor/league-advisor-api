@@ -24,7 +24,7 @@ class UserModel(AbstractUser):
     email = models.EmailField(max_length=255, unique=True)
     password = models.CharField(max_length=255)
     summoner_name = models.CharField(max_length=255)
-    summoner_server = models.CharField(max_length=255)
+    summoner_server = models.CharField(default="euw1", max_length=255)
     summoner_level = models.IntegerField(default=0)
     summoner_rank = models.JSONField(default= no_data_default)
     profile_icon = models.URLField(default=f"https://ddragon.leagueoflegends.com/cdn/{local_version[0]}/img/profileicon/0.png")
@@ -34,6 +34,8 @@ class UserModel(AbstractUser):
 
     # NOTE: OVERRIDE DEFAULT VALUES WITH REAL SUMMONER DATA
     def save(self, *args, **kwargs):
+        env = environ.Env()
+        environ.Env.read_env()
         # NOTE: GET SUMMONER DATA USING SUMMONERNAME
         response = requests.get(
             f"https://{self.summoner_server}.api.riotgames.com/lol/summoner/v4/summoners/by-name/{self.summoner_name}", headers = {"X-Riot-Token":f"{env('API_KEY')}"}
@@ -93,7 +95,6 @@ class UserModel(AbstractUser):
             self.summoner_match_history = match_history_data
             # //////////////////////////////////////////
         super(UserModel, self).save(*args, **kwargs)
-        return Response(status= status.HTTP_200_OK)
 
     def __str__(self):
         return self.email

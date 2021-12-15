@@ -164,7 +164,11 @@ TEST_RUNNER = "django_nose.NoseTestSuiteRunner"
 
 NOSE_ARGS = [
     "--with-coverage",
+
     "--cover-package=champions,solo_champion,ranked,accounts,items,patch_notes"
+
 ]
 
 SIMPLE_JWT = {"ACCESS_TOKEN_LIFETIME": timedelta(seconds=60 * 60 * 2)}
+
+SESSION_EXPIRE_SECONDS = 60 * 60 * 2
