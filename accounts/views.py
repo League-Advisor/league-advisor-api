@@ -29,49 +29,49 @@ class RegisterView(APIView):
 
 
 def UpdateProfile(request):
-    if request.user.is_authenticated:
-        user = request.user
-
+    requester = request.GET.get('user')
+    app_user = UserModel.objects.filter(username=requester)
+    app_user = app_user.first()
 
     with open("static/versions.json") as local_versions:
         local_version = json.load(local_versions)
 
 
         response = requests.get(
-            f"https://{user.summoner_server}.api.riotgames.com/lol/summoner/v4/summoners/by-name/{user.summoner_name}", headers = {"X-Riot-Token":f"{env('API_KEY')}"}
+            f"https://{app_user.summoner_server}.api.riotgames.com/lol/summoner/v4/summoners/by-name/{app_user.summoner_name}", headers = {"X-Riot-Token":f"{env('API_KEY')}"}
             )
 
         if response.status_code == 200:
             response_data = response.json()
-            user.summoner_level = response_data["summonerLevel"]
-            user.summoner_name = response_data["name"]
+            app_user.summoner_level = response_data["summonerLevel"]
+            app_user.summoner_name = response_data["name"]
             profileIconId = response_data["profileIconId"]
             id = response_data["id"]
             puuid = response_data["puuid"]
 
             # NOTE: GET SUMMONER ICON
-            user.profile_icon = f"https://ddragon.leagueoflegends.com/cdn/{local_version[0]}/img/profileicon/{profileIconId}.png"
+            app_user.profile_icon = f"https://ddragon.leagueoflegends.com/cdn/{local_version[0]}/img/profileicon/{profileIconId}.png"
 
             # NOTE: GET SUMMONER CHAMPION MASTERY DATA
             champion_mastery = requests.get(
-                f"https://{user.summoner_server}.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/{id}", headers = {"X-Riot-Token":f"{env('API_KEY')}"}
+                f"https://{app_user.summoner_server}.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/{id}", headers = {"X-Riot-Token":f"{env('API_KEY')}"}
             ).json()
 
             # NOTE: STORE THE 3 HIGHEST MASTERY CHAMPIONS
-            user.summoner_champion_mastery = champion_mastery[:3]
+            app_user.summoner_champion_mastery = champion_mastery[:3]
 
             # NOTE: GET SUMMONER RANK DATA
-            summoner_rank = requests.get(f"https://{user.summoner_server}.api.riotgames.com/lol/league/v4/entries/by-summoner/{id}", headers = {"X-Riot-Token":f"{env('API_KEY')}"}).json()
+            summoner_rank = requests.get(f"https://{app_user.summoner_server}.api.riotgames.com/lol/league/v4/entries/by-summoner/{id}", headers = {"X-Riot-Token":f"{env('API_KEY')}"}).json()
 
             # NOTE: STORE SUMMONER RANK DATA
-            user.summoner_rank = summoner_rank
+            app_user.summoner_rank = summoner_rank
 
             # NOTE: SET RIOT ROUTING SERVER
-            if user.summoner_server in ["br1", "la1", "la2", "na1"]:
+            if app_user.summoner_server in ["br1", "la1", "la2", "na1"]:
                 riot_routing = "AMERICAS"
-            elif user.summoner_server in ["eun1", "euw1", "ru", "tr1", "oc1"]:
+            elif app_user.summoner_server in ["eun1", "euw1", "ru", "tr1", "oc1"]:
                 riot_routing = "EUROPE"
-            elif user.summoner_server in ["jp1", "kr"]:
+            elif app_user.summoner_server in ["jp1", "kr"]:
                 riot_routing = "ASIA"
             
             # NOTE: GET SUMMONER MOST RECENT MATCH HISTORY
@@ -89,20 +89,20 @@ def UpdateProfile(request):
                 match_history_data.append(single_match)
                 
             # NOTE: STORE SUMMONER MATCH DATA
-            user.summoner_match_history = match_history_data
+            app_user.summoner_match_history = match_history_data
 
 
-        # NOTE: SET AND RETURN UPDATED USER DATA
+        # NOTE: SET AND RETURN UPDATED app_user DATA
             updated_data = {
-                "email":user.email,
-                "username" : user.username,
-                "summoner_name" : user.summoner_name,
-                "summoner_server" : user.summoner_server,
-                "profile_icon" : user.profile_icon,
-                "summoner_level" : user.summoner_level,
-                "summoner_rank" : user.summoner_rank,
-                "summoner_champion_mastery" : user.summoner_champion_mastery,
-                "summoner_match_history" : user.summoner_match_history
+                "email":app_user.email,
+                "username" : app_user.username,
+                "summoner_name" : app_user.summoner_name,
+                "summoner_server" : app_user.summoner_server,
+                "profile_icon" : app_user.profile_icon,
+                "summoner_level" : app_user.summoner_level,
+                "summoner_rank" : app_user.summoner_rank,
+                "summoner_champion_mastery" : app_user.summoner_champion_mastery,
+                "summoner_match_history" : app_user.summoner_match_history
                 }
-        super(UserModel, user).save()
+        super(UserModel, app_user).save()
         return JsonResponse(updated_data)

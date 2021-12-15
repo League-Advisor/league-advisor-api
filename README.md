@@ -135,6 +135,8 @@ v0.5.7 :_fix: fixed static assets_ - 13 Dec 2021
 
 v0.5.8 :_feat: added summoner profile update feature_ - 14 Dec 2021
 
+v0.5.9 :_fix: summoner profile update non auth_ - 15 Dec 2021
+
 ---
 
 ## Test Coverage
