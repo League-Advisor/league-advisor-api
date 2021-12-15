@@ -119,13 +119,23 @@ v0.4.2 :_test: adding tests for solo champion_ - 12 Dec 2021
 
 v0.4.3 :_test: make a test for ranked app_ - 12 Dec 2021
 
-
 v0.5.0 :_refactor: automate populating items_ - 12 Dec 2021
 
 v0.5.1 :_refactor: initial db population and automating version reading_ - 12 Dec 2021
 
-v0.5.3 :_test: _update tests_ - 12 Dec 2021
+v0.5.3 :_test: update tests_ - 12 Dec 2021
 
+v0.5.4 :_fix: added temporary alternative login/registration method_ - 13 Dec 2021
+
+v0.5.5 :_fix: adjusted temporary alternative login/registration method returned data_ - 13 Dec 2021
+
+v0.5.6 :_fix: stroing hashed normal user password_ - 13 Dec 2021
+
+v0.5.7 :_fix: fixed static assets_ - 13 Dec 2021
+
+v0.5.8 :_feat: added summoner profile update feature_ - 14 Dec 2021
+
+v0.5.9 :_fix: summoner profile update non auth_ - 15 Dec 2021
 
 ---
 

@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import environ
+from datetime import timedelta
 
 env = environ.Env()
 environ.Env.read_env()
@@ -147,6 +148,16 @@ CORS_ALLOW_CREDENTIALS = True
 
 AUTH_USER_MODEL = "accounts.UserModel"
 
+REST_FRAMEWORK = {
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.AllowAny",
+    ],
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+        "rest_framework.authentication.SessionAuthentication",
+        "rest_framework.authentication.BasicAuthentication",
+    ],
+}
 
 TEST_RUNNER = "django_nose.NoseTestSuiteRunner"
 
@@ -155,3 +166,5 @@ NOSE_ARGS = [
     "--with-coverage",
     "--cover-package=accounts,solo_champion,ranked"
 ]
+
+SIMPLE_JWT = {"ACCESS_TOKEN_LIFETIME": timedelta(seconds=60 * 60 * 2)}
