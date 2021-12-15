@@ -18,8 +18,8 @@
 # -- Project information -----------------------------------------------------
 
 project = 'league_advisor_api'
-copyright = "2021, Du'a Jaradat , Mohammad Al-Hanbali , Bashar Ta'amneh , Ehab Ahmad"
-author = "Du'a Jaradat , Mohammad Al-Hanbali , Bashar Ta'amneh , Ehab Ahmad"
+copyright = "2021, Du'a Jaradat , Mohammad Al-Hanbali , Ehab Ahmad , Bashar Ta'amneh"
+author = "Du'a Jaradat , Mohammad Al-Hanbali , Ehab Ahmad , Bashar Ta'amneh"
 
 # The full version, including alpha/beta/rc tags
 release = '1.0'
