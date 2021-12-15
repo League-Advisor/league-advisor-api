@@ -144,6 +144,9 @@ v0.6.1 :_test: refactor accounts tests_ - 15 Dec 2021
 v0.6.2 :_tests: testing champions app_ - 15 Dec 2021
 
 v0.6.3 :_test: test ranked app_ - 15 Dec 2021
+
+v0.6.7 :_test: solo champion_ - 15 Dec 2021
+
 ---
 
 ## Test Coverage
