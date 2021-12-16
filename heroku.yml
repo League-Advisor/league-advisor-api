@@ -1,0 +1,8 @@
+build:
+  docker:
+    web: Dockerfile
+release:
+  image: web
+run:
+  web: gunicorn league_advisor_api.wsgi --workers 4 
+  
