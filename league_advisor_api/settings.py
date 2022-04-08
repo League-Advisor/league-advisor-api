@@ -189,7 +189,7 @@ NOSE_ARGS = [
     "--with-coverage",
     "--cover-package=champions,solo_champion,ranked,accounts,items,patch_notes",
 ]
-
+CSRF_TRUSTED_ORIGINS = ['https://league-advisor-api--v1.herokuapp.com']
 SIMPLE_JWT = {"ACCESS_TOKEN_LIFETIME": timedelta(seconds=60 * 60 * 2)}
 
 CORS_ORIGIN_WHITELIST = tuple(env.list("ALLOWED_ORIGINS"))
